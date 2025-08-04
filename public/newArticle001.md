@@ -1,14 +1,13 @@
 ---
 title: Qiita CLIを構築中にGitHub Actionsにてエラーが発生
 tags:
-  - 'qiita'
-  - 'qiitacli'
-  - 'github'
-  - 'githubactions'
-
+  - Qiita
+  - GitHub
+  - GitHubActions
+  - QiitaCLI
 private: false
-updated_at: ''
-id: null
+updated_at: '2025-08-04T11:52:13+09:00'
+id: 1f84f4c58b04ee241720
 organization_url_name: null
 slide: false
 ignorePublish: false
