@@ -1,7 +1,11 @@
 ---
 title: Qiita CLIを構築中にGitHub Actionsにてエラーが発生
 tags:
-  - ''
+  - 'qiita'
+  - 'qiitacli'
+  - 'github'
+  - 'githubactions'
+
 private: false
 updated_at: ''
 id: null
@@ -159,11 +163,11 @@ Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/c
 
 ![無題.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/afce70dd-474d-45f1-8f4d-611b18bff213.png)
 
-![無題.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/cad0fe0f-238d-4902-a0b1-782e8f459f46.png)
+![スクリーンショット_4-8-2025_114841_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/30a407a4-1242-489e-aabf-e462e198f8b2.jpeg)
 
-![スクリーンショット_4-8-2025_112928_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/d28e8507-74b1-4c84-964b-99f1af4bcfa2.jpeg)
+![スクリーンショット_4-8-2025_114938_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/7bc74df3-55c7-418a-99d3-d233ebc814ea.jpeg)
 
-```
+```markdown
 # Please set 'QIITA_TOKEN' secret to your repository
 name: Publish articles
 
@@ -192,39 +196,6 @@ jobs:
       - uses: increments/qiita-cli/actions/publish@v1
         with:
           qiita-token: ${{ secrets.QIITA_TOKEN }}
-          root: "."
-
-```
-
-```
-# Please set 'QIITA_TOKEN' secret to your repository
-name: Publish articles
-
-on:
-  push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
-jobs:
-  publish_articles:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: increments/qiita-cli/actions/publish@v1
-        with:
-          qiita-token: ${{ secrets.QIITA_ACCESS_TOKEN }}
           root: "."
 
 ```
