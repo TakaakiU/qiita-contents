@@ -1,5 +1,5 @@
 ---
-title: Qiita CLIを構築中にGitHub Actionsにてエラーが発生
+title: Qiita CLIの導入完了後にGitHub Actionsの自動ビルドでエラーが発生
 tags:
   - Qiita
   - GitHub
@@ -13,9 +13,43 @@ slide: false
 ignorePublish: false
 ---
 
-## 発生したエラー
+[こちらの公式README](https://github.com/increments/qiita-cli)を参照し、Qiita CLIを導入しました。
 
+1. Qiita CLI をインストール・アップデート
+1. Qiita CLI のアップデート
+1. Qiita CLI のセットアップでinit コマンドを実行
+1. Qiita CLI のセットアップでQiita のトークンを発行
+1. Qiita CLI のセットアップでQiita CLI のログイン
+1. Qiita Preview の起動
+1. Qiita CLI で記事を作成
+
+と順調に進み完了しましたが、記事を作成したタイミングでGitHubリポジトリに初回のコミットを行った結果、
+**GitHub Actionsのワークフローでエラーが発生**しました。
+
+この件について調べて対応した内容を共有します。
+
+## 結論
+
+おそらく本来であれば自動的に登録されるはずのQiitaの認証トークンがGitHub Actionsの**Secrets and variables**の設定に反映されていないことが原因でした。
+
+Qiitaのコンテンツを管理しているリポジトリ個別の設定でQiitaのアクセストークンを手動で登録した事により、
+本件は解決しました。
+
+「なぜ、自動でQiitaのアクセストークンが登録されなかったか」については不明ですが、Qiitaのアカウント作成やQiita CLI導入時にブラウザのプライベートモードと通常モードの2つを使って作業していた事が原因かもしれません。
+
+最終手段ですがわたしが解決した方法でも解決しない場合は、もう一度新規リポジトリからやり直すのも1つの方法かもしれません。
+
+## 事象
+
+下記がGitHub Actions ワークフローで発生したエラーの抜粋。
+
+```:エラー（抜粋）
+Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/credentials.json'
 ```
+
+<details><summary>GitHub Actions ワークフローのエラー全文</summary>
+
+```:エラー（全文）
 Run increments/qiita-cli/actions/publish@v1
 Run actions/setup-node@v4
 Attempting to download 20.16.0...
@@ -51,9 +85,78 @@ Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/c
 Error: Process completed with exit code 1.
 ```
 
-## Gemini
+</details>
+
+## Qiitaのリポジトリ設定でキーを設定
+
+### GitHub Actions
 
 ```
+{
+  "default": "qiita",
+  "credentials": [
+    {
+      "name": "qiita",
+      "accessToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+  ]
+}
+```
+
+![無題.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/afce70dd-474d-45f1-8f4d-611b18bff213.png)
+
+![スクリーンショット_4-8-2025_114841_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/30a407a4-1242-489e-aabf-e462e198f8b2.jpeg)
+
+![スクリーンショット_4-8-2025_114938_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/7bc74df3-55c7-418a-99d3-d233ebc814ea.jpeg)
+
+記事の下書き更新の際のコミットで正常終了を確認。
+
+![スクリーンショット_4-8-2025_115244_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/e27ef39e-6072-40ed-bf3e-c0ca96de11e6.jpeg)
+
+```
+# Please set 'QIITA_TOKEN' secret to your repository
+name: Publish articles
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish_articles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: increments/qiita-cli/actions/publish@v1
+        with:
+          qiita-token: ${{ secrets.QIITA_TOKEN }}
+          root: "."
+
+```
+
+InPrivateモードでアクセストークンの認証をしていたため、GitHub上に登録されなかったのかもしれない。
+
+手動でGitHubのActions設定にアクセストークンを設定することで解決。
+
+作業端末ごとに設定する必要があると思うので、新たな端末でQiitaの記事を編集する際は要注意！
+
+## 参考文献
+
+<details><summary>Gemini 2.5 Proの回答内容</summary>
+
+````markdown
 ご提示いただいたGitHub Actionsのエラーログ、拝見いたしました。
 これはQiita CLIとGitHub Actionsを連携させる際に非常によく発生する典型的なエラーです。
 
@@ -144,67 +247,4 @@ Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/c
 修正したYAMLファイルをコミット＆プッシュして、再度GitHub Actionsが正常に動作するか確認してみてください。
 ```
 
-## Qiitaのリポジトリ設定でキーを設定
-
-### GitHub Actions
-
-```
-{
-  "default": "qiita",
-  "credentials": [
-    {
-      "name": "qiita",
-      "accessToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-  ]
-}
-```
-
-![無題.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/afce70dd-474d-45f1-8f4d-611b18bff213.png)
-
-![スクリーンショット_4-8-2025_114841_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/30a407a4-1242-489e-aabf-e462e198f8b2.jpeg)
-
-![スクリーンショット_4-8-2025_114938_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/7bc74df3-55c7-418a-99d3-d233ebc814ea.jpeg)
-
-記事の下書き更新の際のコミットで正常終了を確認。
-
-![スクリーンショット_4-8-2025_115244_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/e27ef39e-6072-40ed-bf3e-c0ca96de11e6.jpeg)
-
-```
-# Please set 'QIITA_TOKEN' secret to your repository
-name: Publish articles
-
-on:
-  push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
-jobs:
-  publish_articles:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: increments/qiita-cli/actions/publish@v1
-        with:
-          qiita-token: ${{ secrets.QIITA_TOKEN }}
-          root: "."
-
-```
-
-InPrivateモードでアクセストークンの認証をしていたため、GitHub上に登録されなかったのかもしれない。
-
-手動でGitHubのActions設定にアクセストークンを設定することで解決。
-
-作業端末ごとに設定する必要があると思うので、新たな端末でQiitaの記事を編集する際は要注意！
+</details>
