@@ -167,7 +167,11 @@ Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/c
 
 ![スクリーンショット_4-8-2025_114938_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/7bc74df3-55c7-418a-99d3-d233ebc814ea.jpeg)
 
-```markdown
+記事の下書き更新の際のコミットで正常終了を確認。
+
+![スクリーンショット_4-8-2025_115244_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/e27ef39e-6072-40ed-bf3e-c0ca96de11e6.jpeg)
+
+```
 # Please set 'QIITA_TOKEN' secret to your repository
 name: Publish articles
 
