@@ -49,7 +49,7 @@ Qiitaコンテンツのリポジトリに対し、Qiitaのアクセストーク�
 >
 > 引用元：[READMEのGitHub の設定について｜Qiita CLI公式リポジトリ](https://github.com/increments/qiita-cli/blob/main/README.md#github-%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
 
-上記のGitHub上の内容ではなく、Qiitaにある[こちらの記事](https://github.com/increments/qiita-cli)を参照すると、設定作業の流れを加味して記載されていました。
+上記のGitHub上の内容ではなく、Qiitaにある[こちらの記事](https://qiita.com/Qiita/items/32c79014509987541130)を参照すると、設定作業の流れを加味して記載されていました。
 
 ## 事象
 
@@ -192,7 +192,7 @@ jobs:
 - なぜ公式の手順でアクセストークンが自動で設定されなかったのかは不明
     ~~おそらく設定作業におけるブラウザ操作でプライベートモードや通常モードの2つを使って対応してしまったことが原因かも。~~
     筆者の確認漏れ。
-    参照した[GitHubの手順](https://qiita.com/Qiita/items/32c79014509987541130)は設定手順の流れでは記載されていなかった。[Qiita上にある手順](https://github.com/increments/qiita-cli)だと設定作業の流れを加味して記載されていた。
+    参照した[GitHubの手順](https://github.com/increments/qiita-cli)は設定手順の流れでは記載されていなかった。[Qiita上にある手順](https://qiita.com/Qiita/items/32c79014509987541130)だと設定作業の流れを加味して記載されていた。
 
 ## 参考文献
 
