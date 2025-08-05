@@ -97,10 +97,10 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 <details><summary>クリップボードのテキストを引用表示に変換する「ConvertTo-MarkdownQuote」</summary>
 
 ```powershell
-# クリップボードのテキストをMarkdownの引用形式に変換する専用関数
-function ConvertTo-MarkdownQuote {
+# クリップボードのテキストにMarkdownの引用記号を追加する
+function Add-MarkdownQuote {
     [CmdletBinding()]
-    [Alias('mdq')] # 'mdq' という短いエイリアス(別名)を自動で設定する
+    [Alias('amq')] # 'amq' という短いエイリアス(別名)を自動で設定する
     param()
 
     # 1. クリップボードからテキストを取得
@@ -135,7 +135,7 @@ function ConvertTo-MarkdownQuote {
 </details>
 
 ```powershell
-mdq
+amq
 ```
 
 `. $PROFILE`でプロファイルに登録すると、より便利に。
@@ -181,7 +181,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 <details><summary>クリップボードのテキスト内の引用表示を解除する「Remove-MarkdownQuote」</summary>
 
 ```powershell
-# クリップボードのMarkdown引用形式を解除する専用関数
+# クリップボードのテキストからMarkdownの引用記号を削除する
 function Remove-MarkdownQuote {
     [CmdletBinding()]
     [Alias('rmq')] # 'rmq' という短いエイリアスを設定
