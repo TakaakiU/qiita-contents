@@ -92,6 +92,10 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 上記の拡張機能をインストール後、`Ctrl` + `^` で変換可能。
 
+### VS Codeでショートカットキーを自作して追加
+
+XXXX
+
 ### PowerShellを使って追加
 
 <details><summary>クリップボードのテキストを引用表示に変換する「Add-MarkdownQuote」</summary>
@@ -175,6 +179,10 @@ https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
 https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
 
 `Ctrl` + `^` で変換。
+
+### VS Codeでショートカットキーを自作して解除
+
+XXXX
 
 ### PowerShellを使って解除
 
