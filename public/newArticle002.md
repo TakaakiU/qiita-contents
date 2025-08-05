@@ -77,13 +77,13 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 > - 項目5
 ```
 
-この「`> `」は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)などで警告表示されてしまいます。
-これを解消するため、「`> `」を「`>`」のみにする場合は、前述した手順で
+項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)で警告表示されてしまいます。
+これを解消するため、「`> `」を「`>`」にしたい場合は、前述した手順のうち、
 
 5. 検索欄に「`^> $`」を入力
 6. 置換欄に「`>`」を入力
 
-に置き換えることで対応可能です。
+というように置き換えることで対応可能です。
 
 ```markdown:追加の置換で「> 」を「>」に変換
 > - 項目1
@@ -98,7 +98,10 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 
 https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
 
-上記の拡張機能をインストール後、`Ctrl` + `^` で変換可能。
+上記の拡張機能をインストール後、下記の手順で対応可能。
+
+1. 対象の文字列を範囲指定
+1. `Ctrl` + `^`で選択範囲の文字列の各行頭に「`> `」が挿入
 
 ### 変換方法4. VS Codeでショートカットキーを自作して追加
 
@@ -250,7 +253,10 @@ https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
 
 https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
 
-`Ctrl` + `^` で変換。
+上記の拡張機能をインストール後、下記の手順で対応可能。
+
+1. 対象の文字列を範囲指定
+1. `Ctrl` + `^`で選択範囲の文字列の各行頭にある「`> `（または`>`）」が削除
 
 ### 解除方法4. VS Codeでショートカットキーを自作して解除
 
@@ -317,7 +323,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 #### 使用方法（VS Codeでショートカットキーを自作して解除）
 
 1. 対象の文字列を範囲指定
-1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
+1. `Ctrl` + `Alt` + `8`で選択範囲の文字列の各行頭にある「`> `（または`>`）」が削除
 
 ### 解除方法5. PowerShellを使って解除
 
@@ -363,7 +369,28 @@ rmq
 
 ## まとめ
 
-- XXXX
+引用表示（または解除）にする下記5つの方法を紹介しました。
+
+1. VS Codeのショートカットキーを駆使した方法
+1. VS Codeの置換機能（正規表現を有効）を使った方法
+1. 専用の拡張機能「Markdown Blockquote Toggler」を使った方法
+1. VS Codeでショートカットキーを自作する方法
+1. PowerShellを使った方法
+
+目的別に方法を提示していくと……
+
+- 事前の作業が不要ですぐ対応できる方法が……
+    - 方法1. VS Codeのショートカットキーを駆使した方法
+    - 方法2. VS Codeの置換機能（正規表現を有効）を使った方法
+- 簡易的に対応できる方法が……
+    - 方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使った方法
+- 拡張機能は使わずにVS Codeで何とかしたい場合が……
+    - 方法4. VS Codeでショートカットキーを自作する方法
+- VS Codeに限らずメール作成やドキュメント作成時などにも幅広く使用する方法が……
+    - 方法5. PowerShellを使った方法
+
+という感じになると思います。
+この記事が、同様の課題をお持ちの方にとって、解決の一助となりますと幸いです。
 
 ## 参考文献
 
