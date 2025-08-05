@@ -1,10 +1,10 @@
 ---
-title: Qiita CLIの導入完了後にGitHub Actionsの自動ビルドでエラーが発生
+title: 【解決方法】Qiita CLI導入後の初回コミットで自動実行したGitHub Actionsのワークフローがエラーになった場合
 tags:
   - Qiita
+  - QiitaCLI
   - GitHub
   - GitHubActions
-  - QiitaCLI
 private: false
 updated_at: '2025-08-05T10:09:02+09:00'
 id: 1f84f4c58b04ee241720
