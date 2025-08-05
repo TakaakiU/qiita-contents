@@ -148,7 +148,7 @@ jobs:
 上記の設定のとおり、`qiita-token: ${{ secrets.QIITA_TOKEN }}`となっています。
 そのため、GitHubリポジトリ上に同じ変数名の`QIITA_TOKEN`をキーにアクセスキーを登録してあげる必要があります。
 
-</detaiils>
+</details>
 
 ### 手順2. GitHubリポジトリにQiitaのアクセスキーを登録
 
