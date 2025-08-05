@@ -94,6 +94,33 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 ### VS Codeでショートカットキーを自作して追加
 
+`Ctrl` + `Shift` + `P` でコマンドパレットを開き、「`>keyboard shortcuts`」と入力。
+
+```json:keybindings.json
+[
+    {
+        // 既存の定義
+    },
+    {
+        "key": "ctrl+alt+9", // 引用を「挿入」するキー
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorHasSelection",
+        "args": {
+            "snippet": "${TM_SELECTED_TEXT/^(.+)$/> $1/gm}"
+        }
+    },
+    {
+        "key": "ctrl+alt+8", // 引用を「削除」するキー
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorHasSelection",
+        "args": {
+            // 選択範囲の各行頭にある「> 」または「>」を削除する
+            "snippet": "${TM_SELECTED_TEXT/^> ?//gm}"
+        }
+    }
+]
+```
+
 XXXX
 
 ### PowerShellを使って追加
