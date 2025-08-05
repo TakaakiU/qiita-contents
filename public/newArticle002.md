@@ -94,7 +94,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 ### PowerShellを使って追加
 
-<details><summary>クリップボードのテキストを引用表示に変換する「ConvertTo-MarkdownQuote」</summary>
+<details><summary>クリップボードのテキストを引用表示に変換する「Add-MarkdownQuote」</summary>
 
 ```powershell
 # クリップボードのテキストにMarkdownの引用記号を追加する
