@@ -1,12 +1,12 @@
 ---
 title: 括弧の呼び方（日本・英語圏、IT用語）
 tags:
-  - 'プログラミング'
-  - '記号'
-  - '括弧'
+  - プログラミング
+  - 記号
+  - 括弧
 private: true
-updated_at: ''
-id: null
+updated_at: '2025-08-05T16:44:40+09:00'
+id: 808c2421b43e45bbb466
 organization_url_name: null
 slide: false
 ignorePublish: false
