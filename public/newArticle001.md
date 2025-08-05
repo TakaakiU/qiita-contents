@@ -1,5 +1,5 @@
 ---
-title: 【解決方法】Qiita CLI導入後の初回コミットで自動実行したGitHub Actionsのワークフローがエラーになった場合
+title: Qiita CLI導入後の初回コミットで自動実行したGitHub Actionsのワークフローがエラーになる
 tags:
   - Qiita
   - QiitaCLI
