@@ -23,21 +23,20 @@ ignorePublish: false
 1. Qiita Preview の起動
 1. Qiita CLI で記事を作成
 
-と順調に進み完了しましたが、記事を作成したタイミングでGitHubリポジトリに初回のコミットを行った結果、
+と順調に進み完了しましたが、記事を作成したタイミングでGitHubリポジトリを新規作成し初回のコミットを行った結果、
 **GitHub Actionsのワークフローでエラーが発生**しました。
 
-この件について調べて対応した内容を共有します。
+この件について調べ対応した内容を共有します。
 
 ## 結論
 
 おそらく本来であれば自動的に登録されるはずのQiitaの認証トークンがGitHub Actionsの**Secrets and variables**の設定に反映されていないことが原因でした。
 
-Qiitaのコンテンツを管理しているリポジトリ個別の設定でQiitaのアクセストークンを手動で登録した事により、
-本件は解決しました。
+Qiitaコンテンツのリポジトリに対し、Qiitaのアクセストークンを手動で設定した事により解決しました。
 
-「なぜ、自動でQiitaのアクセストークンが登録されなかったか」については不明ですが、Qiitaのアカウント作成やQiita CLI導入時にブラウザのプライベートモードと通常モードの2つを使って作業していた事が原因かもしれません。
+「なぜ、自動でQiitaのアクセストークンが登録されなかったか」については不明ですが、Qiitaのアカウント作成やQiita CLI導入時にブラウザのプライベートモードと通常モードの2つを使って作業していた事が要因なのかもしれません。
 
-最終手段ですがわたしが解決した方法でも解決しない場合は、もう一度新規リポジトリからやり直すのも1つの方法かもしれません。
+もし、紹介する手法で解決できなかった場合、最終手段として1から新規リポジトリを作成し、やり直す方法の方が解決まで早いかも。
 
 ## 事象
 
@@ -87,11 +86,14 @@ Error: Process completed with exit code 1.
 
 </details>
 
-## Qiitaのリポジトリ設定でキーを設定
+## 対応方法：Qiitaコンテンツのリポジトリで設定でキーを設定
 
-### GitHub Actions
+### 手順1. クライアント端末のアクセスキーをメモ
 
-```
+クライアントがWindows OSであるため、`C:\Users\<ユーザー名>\.config\qiita-cli\credentials.json`を参照し、
+`accessToken`にあるキーをメモしておく。
+
+```json:credentials.json
 {
   "default": "qiita",
   "credentials": [
@@ -103,17 +105,14 @@ Error: Process completed with exit code 1.
 }
 ```
 
-![無題.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/afce70dd-474d-45f1-8f4d-611b18bff213.png)
+なお、Windows以外（macOS / Linux）の場合は、下記に対象ファイルがあるとのこと（未検証）。
+`~/.config/qiita-cli/credentials.json`
 
-![スクリーンショット_4-8-2025_114841_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/30a407a4-1242-489e-aabf-e462e198f8b2.jpeg)
+<details><summary>補足情報：QiitaコンテンツのGitHubリポジトリ上の設定を確認すると……</summary>
 
-![スクリーンショット_4-8-2025_114938_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/7bc74df3-55c7-418a-99d3-d233ebc814ea.jpeg)
+Qiitaコンテンツのリポジトリ上にある`.github/workflows/publish.yml`は下記のとおり。
 
-記事の下書き更新の際のコミットで正常終了を確認。
-
-![スクリーンショット_4-8-2025_115244_github.com.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/e27ef39e-6072-40ed-bf3e-c0ca96de11e6.jpeg)
-
-```
+```yml:publish.yml
 # Please set 'QIITA_TOKEN' secret to your repository
 name: Publish articles
 
@@ -146,105 +145,35 @@ jobs:
 
 ```
 
-InPrivateモードでアクセストークンの認証をしていたため、GitHub上に登録されなかったのかもしれない。
+上記の設定のとおり、`qiita-token: ${{ secrets.QIITA_TOKEN }}`となっています。
+そのため、GitHubリポジトリ上に同じ変数名の`QIITA_TOKEN`をキーにアクセスキーを登録してあげる必要があります。
 
-手動でGitHubのActions設定にアクセストークンを設定することで解決。
+</detaiils>
 
-作業端末ごとに設定する必要があると思うので、新たな端末でQiitaの記事を編集する際は要注意！
+### 手順2. GitHubリポジトリにQiitaのアクセスキーを登録
 
-## 参考文献
+1. エラーが発生したGitHubリポジトリのページにアクセス
+1. 「**Settings**」タブをクリック
+1. 左のメニューから「**Secrets and variables**」>「**Actions**」を選択
+1. 「**New repository secret**」ボタンをクリック
+    ![設定前のSecrets and variables画面｜GitHub](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/afce70dd-474d-45f1-8f4d-611b18bff213.png)
+1. **Name** に `QIITA_TOKEN` を入力し、**Secret** のテキストボックスに、手順1でコピーしたアクセストークン（`xxxxxxxx...`の部分）を貼り付け
+    ![NameとSecretを入力後の画面｜Actions secrets](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/30a407a4-1242-489e-aabf-e462e198f8b2.jpeg)
+1. 「**Add secret**」ボタンをクリックして保存
 
-<details><summary>Gemini 2.5 Proの回答内容</summary>
+この手順でQiitaのアクセスキーをGitHubのリポジトリ上に設定できました。
+![設定後のSecrets and variables画面｜GitHub](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/7bc74df3-55c7-418a-99d3-d233ebc814ea.jpeg)
 
-````markdown
-ご提示いただいたGitHub Actionsのエラーログ、拝見いたしました。
-これはQiita CLIとGitHub Actionsを連携させる際に非常によく発生する典型的なエラーです。
+### 手順3. 次回コミット時に正常終了することを確認
 
-### エラーの直接的な原因
+記事の更新や設定ファイルの更新に合わせて、エラーが解消するか確認します。
+下記のとおり、エラーがあったGitHub Actionsで正常終了したことを確認すれば解決です。
 
-エラーメッセージの核心部分はここにあります。
+![GitHubリポジトリにQiitaアクセストークンを登録し次回コミットで正常終了を確認](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4156147/e27ef39e-6072-40ed-bf3e-c0ca96de11e6.jpeg)
 
-```
-Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/credentials.json'
-```
+## まとめ
 
-これは、GitHub Actionsを実行している仮想環境（runner）の `/home/runner/.config/qiita-cli/` というディレクトリ内に、Qiitaの認証情報が書かれた `credentials.json` ファイルが見つからない、というエラーです。
-
-**つまり、「GitHub ActionsがQiitaに記事を投稿しようとしたが、誰として投稿すればいいのか（＝どのアクセストークンを使えばいいのか）分からなかった」というのが原因です。**
-
-### なぜこのエラーが起きるのか？
-
-1.  **ローカル環境とGitHub Actions環境は別物**
-    ユーザー様がご自身のPC（ローカル環境）で `qiita configure` コマンドを実行した際に、`credentials.json` ファイルがPC内に作成されました。Qiita CLIはローカルではそのファイルを読み込んで認証しています。
-
-2.  **GitHub Actionsは毎回クリーンな環境で実行される**
-    GitHub Actionsのワークフローが実行されるたびに、GitHubはまっさらな仮想環境（runner）を準備します。この環境には、当然ながらユーザー様のPC内にある `credentials.json` ファイルは存在しません。
-
-3.  **認証情報がないためエラーになる**
-    そのクリーンな環境で `qiita publish` コマンドが実行されると、Qiita CLIは認証情報を探して `/home/runner/.config/qiita-cli/credentials.json` を読み込もうとしますが、ファイルが存在しないため「ファイルが見つからない（ENOENT）」というエラーで処理が失敗します。
-
-### 解決策：GitHub Secretsを使ってアクセストークンを渡す
-
-この問題を解決するには、GitHub Actionsのワークフローに**安全な方法でQiitaのアクセストークンを渡す**必要があります。そのための仕組みが **GitHub Secrets** です。
-
-以下の手順で修正してください。
-
-#### 手順1：Qiitaのアクセストークンを取得する
-
-まず、ローカルのPCに保存されているアクセストークンを確認します。
-お使いのOSに応じて、以下の場所にある `credentials.json` ファイルをテキストエディタで開いてください。
-
-*   **Windows:** `C:\Users\<ユーザー名>\.config\qiita-cli\credentials.json`
-*   **macOS / Linux:** `~/.config/qiita-cli/credentials.json`
-
-ファイルの中身は以下のようになっています。この `"accessToken": "..."` の部分の英数字の羅列がアクセストークンです。これをコピーしておきます。
-
-```json
-{
-  "accessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-}
-```
-
-#### 手順2：GitHubリポジトリにSecretsを登録する
-
-1.  エラーが発生したGitHubリポジトリのページにアクセスします。
-2.  「**Settings**」タブをクリックします。
-3.  左のメニューから「**Secrets and variables**」>「**Actions**」を選択します。
-4.  「**New repository secret**」ボタンをクリックします。
-5.  **Name** に `QIITA_ACCESS_TOKEN` と入力します。（この名前は後で使います）
-6.  **Secret** のテキストボックスに、手順1でコピーしたアクセストークン（`xxxxxxxx...`の部分）を貼り付けます。
-7.  「**Add secret**」ボタンをクリックして保存します。
-
-#### 手順3：GitHub Actionsのワークフローファイル（.yml）を修正する
-
-リポジトリ内にある `.github/workflows/` ディレクトリの中の、該当するYAMLファイル（例: `qiita-sync.yml` など）を編集します。
-
-`increments/qiita-cli/actions/publish@v1` を使っている箇所を以下のように修正してください。
-
-**修正前（おそらく現在のコード）：**
-```yaml
-      - name: Qiita Publish
-        uses: increments/qiita-cli/actions/publish@v1
-        # with: 以下に何も設定されていないか、qiita-tokenがない状態
-```
-
-**修正後（`with` を追加）：**
-```yaml
-      - name: Qiita Publish
-        uses: increments/qiita-cli/actions/publish@v1
-        with:
-          qiita-token: ${{ secrets.QIITA_ACCESS_TOKEN }}
-```
-
-`with:` ブロックを追加し、`qiita-token` というパラメータに、先ほどGitHub Secretsに登録した `${{ secrets.QIITA_ACCESS_TOKEN }}` を渡すように指定します。
-
-`${{ ... }}` という構文は、GitHub ActionsがSecretsの値を安全に読み込むためのものです。
-
-### まとめ
-
-この修正を行うことで、ワークフローが実行される際に `increments/qiita-cli/actions/publish@v1` アクションがGitHub Secretsから安全にアクセストークンを受け取り、Qiita APIの認証を成功させることができます。これにより、`credentials.json` ファイルが見つからないというエラーは解消されるはずです。
-
-修正したYAMLファイルをコミット＆プッシュして、再度GitHub Actionsが正常に動作するか確認してみてください。
-```
-
-</details>
+- Qiita CLI導入後の初回のコミットでエラー「`Error: ENOENT: no such file or directory, open '/home/runner/.config/qiita-cli/credentials.json'`」が発生
+- エラーの原因はQiita CLIのアクセストークンがコミット先のリポジトリに設定されていなかったため
+- なぜ公式の手順でアクセストークンが自動で設定されなかったのかは不明
+    おそらく設定作業におけるブラウザ操作でプライベートモードや通常モードの2つを使って対応してしまったことが原因かも。
