@@ -1,10 +1,10 @@
 ---
 title: VS Codeで選択範囲を引用表示する方法
 tags:
-  - 'vscode'
+  - VSCode
 private: true
-updated_at: ''
-id: null
+updated_at: '2025-08-05T10:32:09+09:00'
+id: b07459f10b9508adec43
 organization_url_name: null
 slide: false
 ignorePublish: false
