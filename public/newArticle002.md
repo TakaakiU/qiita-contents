@@ -94,7 +94,37 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 ### VS Codeでショートカットキーを自作して追加
 
-`Ctrl` + `Shift` + `P` でコマンドパレットを開き、「`>keyboard shortcuts`」と入力。
+#### 設定方法（VS Codeでショートカットキーを自作して追加）
+
+1. `Ctrl` + `Shift` + `P` でコマンドパレットを開き、「`>keyboard shortcuts`」と入力。
+1. 下記の項目を選択
+    > 基本設定:キーボードショートカットを開く(JSON)
+    > Preferences: Keyboard Shortcuts (JSON)
+1. keybindings.jsonが開く
+1. 下記の内容を追加
+    定義するショートカットキーは任意ですが、下記の内容を追加することで、
+    選択範囲の文字列を引用表示に変換できます。
+
+    ```json:keybindings.json
+    [
+        {
+            // 既存の定義
+        },
+        {
+            "key": "ctrl+alt+9", // 引用を「挿入」するキー
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorHasSelection",
+            "args": {
+                // 選択範囲の各行頭に「> 」を挿入する
+                "snippet": "${TM_SELECTED_TEXT/^(.*)(\\r?\\n|$)/> $1$2/gm}"
+            }
+        }
+    ]
+    ```
+
+<details><summary>補足情報：自作したショートカットキーの追加と解除の定義</summary>
+
+追加と解除の設定方法は同じなので、どちらか対応する際に合わせて設定すると楽です。
 
 ```json:keybindings.json
 [
@@ -106,7 +136,8 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorHasSelection",
         "args": {
-            "snippet": "${TM_SELECTED_TEXT/^(.+)$/> $1/gm}"
+            // 選択範囲の各行頭に「> 」を挿入する
+            "snippet": "${TM_SELECTED_TEXT/^(.*)(\\r?\\n|$)/> $1$2/gm}"
         }
     },
     {
@@ -121,7 +152,12 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 ]
 ```
 
-XXXX
+</details>
+
+#### 使用方法（VS Codeでショートカットキーを自作して追加）
+
+1. 対象の文字列を範囲指定
+1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
 
 ### PowerShellを使って追加
 
@@ -209,7 +245,70 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 ### VS Codeでショートカットキーを自作して解除
 
-XXXX
+#### 設定方法（VS Codeでショートカットキーを自作して解除）
+
+1. `Ctrl` + `Shift` + `P` でコマンドパレットを開き、「`>keyboard shortcuts`」と入力。
+1. 下記の項目を選択
+    > 基本設定:キーボードショートカットを開く(JSON)
+    > Preferences: Keyboard Shortcuts (JSON)
+1. keybindings.jsonが開く
+1. 下記の内容を追加
+    定義するショートカットキーは任意ですが、下記の内容を追加することで、
+    選択範囲の文字列を引用表示に変換できます。
+
+    ```json:keybindings.json
+    [
+        {
+            // 追加ショートカットキーを含む、既存の定義
+        },
+        {
+            "key": "ctrl+alt+8", // 引用を「削除」するキー
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorHasSelection",
+            "args": {
+                // 選択範囲の各行頭にある「> 」または「>」を削除する
+                "snippet": "${TM_SELECTED_TEXT/^> ?//gm}"
+            }
+        }
+    ]
+    ```
+
+<details><summary>補足情報：自作したショートカットキーの追加と解除の定義</summary>
+
+追加と解除の設定方法は同じなので、どちらか対応する際に合わせて設定すると楽です。
+
+```json:keybindings.json
+[
+    {
+        // 既存の定義
+    },
+    {
+        "key": "ctrl+alt+9", // 引用を「挿入」するキー
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorHasSelection",
+        "args": {
+            // 選択範囲の各行頭に「> 」を挿入する
+            "snippet": "${TM_SELECTED_TEXT/^(.*)(\\r?\\n|$)/> $1$2/gm}"
+        }
+    },
+    {
+        "key": "ctrl+alt+8", // 引用を「削除」するキー
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorHasSelection",
+        "args": {
+            // 選択範囲の各行頭にある「> 」または「>」を削除する
+            "snippet": "${TM_SELECTED_TEXT/^> ?//gm}"
+        }
+    }
+]
+```
+
+</details>
+
+#### 使用方法（VS Codeでショートカットキーを自作して解除）
+
+1. 対象の文字列を範囲指定
+1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
 
 ### PowerShellを使って解除
 
