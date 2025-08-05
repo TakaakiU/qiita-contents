@@ -2,11 +2,11 @@
 title: 【解決方法】Qiita CLI導入後の初回コミットで自動実行したGitHub Actionsのワークフローがエラーになった場合
 tags:
   - Qiita
-  - QiitaCLI
   - GitHub
   - GitHubActions
+  - QiitaCLI
 private: false
-updated_at: '2025-08-05T10:09:02+09:00'
+updated_at: '2025-08-05T13:56:26+09:00'
 id: 1f84f4c58b04ee241720
 organization_url_name: null
 slide: false
