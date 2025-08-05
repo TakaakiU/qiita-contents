@@ -1,7 +1,9 @@
 ---
-title: VS Codeで選択範囲を引用表示する方法
+title: VS Codeで選択範囲の文字列を引用表示に変換する5つの方法（解除方法も合わせて紹介）
 tags:
   - VSCode
+  - Markdown
+  - PowerShell
 private: true
 updated_at: '2025-08-05T14:40:06+09:00'
 id: b07459f10b9508adec43
@@ -10,9 +12,10 @@ slide: false
 ignorePublish: false
 ---
 
-VS Codeの標準的な
+VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現できないか試行錯誤しましたが、良い方法が見つかりませんでした。
+深掘りして調べて、いくつか良さそうな方法があったので共有します。
 
-## mdファイル上で「`Ctrl` + `/`」でコメントアウトすると
+## VS Codeの標準的な機能で実現しようとしてもNG
 
 ```markdown:引用表示にしたいテキスト群
 - 項目1
@@ -22,6 +25,8 @@ VS Codeの標準的な
 - 項目5
 ```
 
+上記のようなmdファイル上で「`Ctrl` + `/`」でコメントアウトすると……
+
 ```markdown:「Ctrl + /」するとHTMLコードとしてコメントアウトされる
 <!-- - 項目1
 - 項目2
@@ -30,11 +35,14 @@ VS Codeの標準的な
 - 項目5 -->
 ```
 
+上記のように「HTMLコード」として扱われてしまいました。
+
 ## 選択範囲を引用表示にする方法
 
-数行の場合は手動で追加するのもあり。
+数行の場合は手動で先頭行に対して「`> `」を追加するのもありですが、対象文字列が多いと面倒です。
+調べた結果、5種類の対応が見つかりました。
 
-### VS Codeのショートカットキーを駆使して追加
+### 変換方法1. VS Codeのショートカットキーを駆使して追加
 
 ネットで検索した結果、[こちらの記事](https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark)を参照にさせて頂きました。
 
@@ -46,7 +54,7 @@ VS Codeの標準的な
 >
 > 引用元：[手順 - VSCodeで複数行にMarkdownの引用符を付ける｜Zenn](https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark#%E6%89%8B%E9%A0%86)
 
-### VS Codeの置換機能（正規表現を有効）を使って追加
+### 変換方法2. VS Codeの置換機能（正規表現を有効）を使って追加
 
 選択範囲の先頭行に対し、「`> `」を追加。
 
@@ -86,13 +94,13 @@ VS Codeの標準的な
 > - 項目5
 ```
 
-### 専用の拡張機能「Markdown Blockquote Toggler」を使って追加
+### 変換方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使って追加
 
 https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
 
 上記の拡張機能をインストール後、`Ctrl` + `^` で変換可能。
 
-### VS Codeでショートカットキーを自作して追加
+### 変換方法4. VS Codeでショートカットキーを自作して追加
 
 #### 設定方法（VS Codeでショートカットキーを自作して追加）
 
@@ -159,7 +167,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
 
-### PowerShellを使って追加
+### 変換方法5. PowerShellを使って追加
 
 <details><summary>クリップボードのテキストを引用表示に変換する「Add-MarkdownQuote」</summary>
 
@@ -205,13 +213,14 @@ function Add-MarkdownQuote {
 amq
 ```
 
-`. $PROFILE`でプロファイルに登録すると、より便利に。
+[こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1%EF%BC%9Apowershell%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
 
 ## 選択範囲の引用表示を解除する方法
 
-数行の場合は手動で解除するのもあり。
+数行の場合は手動で先頭行に対して「`> `」を削除するのもありですが、対象文字列が多いと面倒です。
+調べた結果、5種類の対応が見つかりました。
 
-### VS Codeのショートカットキーを駆使して解除
+### 解除方法1. VS Codeのショートカットキーを駆使して解除
 
 https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
 
@@ -220,7 +229,7 @@ https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
 1. `Home` でマルチカーソルの位置を先頭行に移動
 1. `Delete` を2回押して先頭行の `> ` を削除
 
-### VS Codeの置換機能（正規表現を有効）を使って解除
+### 解除方法2. VS Codeの置換機能（正規表現を有効）を使って解除
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `H` で置換機能を表示
@@ -237,13 +246,13 @@ https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
 
 とすることで対応可能。
 
-### 専用の拡張機能「Markdown Blockquote Toggler」を使って解除
+### 解除方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使って解除
 
 https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
 
 `Ctrl` + `^` で変換。
 
-### VS Codeでショートカットキーを自作して解除
+### 解除方法4. VS Codeでショートカットキーを自作して解除
 
 #### 設定方法（VS Codeでショートカットキーを自作して解除）
 
@@ -310,7 +319,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
 
-### PowerShellを使って解除
+### 解除方法5. PowerShellを使って解除
 
 <details><summary>クリップボードのテキスト内の引用表示を解除する「Remove-MarkdownQuote」</summary>
 
@@ -350,8 +359,14 @@ function Remove-MarkdownQuote {
 rmq
 ```
 
-`. $PROFILE`でプロファイルに登録すると、より便利に。
+[こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1%EF%BC%9Apowershell%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
+
+## まとめ
+
+- XXXX
 
 ## 参考文献
 
 https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
+
+https://zenn.dev/haretokidoki/articles/e2a6c521035d94
