@@ -20,6 +20,7 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 ```markdown:引用表示にしたいテキスト群
 - 項目1
 - 項目2
+
 - 項目3
 - 項目4
 - 項目5
@@ -30,6 +31,7 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 ```markdown:「Ctrl + /」するとHTMLコードとしてコメントアウトされる
 <!-- - 項目1
 - 項目2
+
 - 項目3
 - 項目4
 - 項目5 -->
@@ -77,8 +79,10 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 > - 項目5
 ```
 
-項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)で警告表示されてしまいます。
-これを解消するため、「`> `」を「`>`」にしたい場合は、前述した手順のうち、
+項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)で警告表示（[MD009 - 末尾のスペース](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md)）されてしまいます。
+これを解消するため、「`> `」を「`>`」にしたい場合は、追加で対応してください。
+
+1 ～ 4 は同じ手順で後続の手順を、
 
 5. 検索欄に「`^> $`」を入力
 6. 置換欄に「`>`」を入力
@@ -93,6 +97,8 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 > - 項目4
 > - 項目5
 ```
+
+テキストを範囲選択しないと判別しにくいといますが、追加の置換で末尾のスペースを無くすことができました。
 
 ### 変換方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使って追加
 
@@ -111,7 +117,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 下記の項目を選択
     > 基本設定:キーボードショートカットを開く(JSON)
     > Preferences: Keyboard Shortcuts (JSON)
-1. keybindings.jsonが開く
+1. `keybindings.json`が自動で開かれる
 1. 下記の内容を追加
     定義するショートカットキーは任意ですが、下記の内容を追加することで、
     選択範囲の文字列を引用表示に変換できます。
@@ -135,7 +141,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 <details><summary>補足情報：自作したショートカットキーの追加と解除の定義</summary>
 
-追加と解除の設定方法は同じなので、どちらか対応する際に合わせて設定すると楽です。
+追加と解除の設定方法は同じなので、どちらか対応する際に合わせて設定することをオススメします。
 
 ```json:keybindings.json
 [
@@ -169,6 +175,8 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
+
+JIS配列のキーボードでは、「`Shift` + `9` = `)`（丸括弧閉じ）」であるため、 `Ctrl` + `Alt` + `9` を`引用表示の追加`のショートカットキーとして割り当てました。
 
 ### 変換方法5. PowerShellを使って追加
 
@@ -290,7 +298,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 <details><summary>補足情報：自作したショートカットキーの追加と解除の定義</summary>
 
-追加と解除の設定方法は同じなので、どちらか対応する際に合わせて設定すると楽です。
+追加と解除の設定方法は同じなので、どちらか対応する際に合わせて設定することをオススメします。
 
 ```json:keybindings.json
 [
@@ -324,6 +332,8 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `Alt` + `8`で選択範囲の文字列の各行頭にある「`> `（または`>`）」が削除
+
+JIS配列のキーボードでは、「`Shift` + `8` = `(`（丸括弧開き）」であるため、 `Ctrl` + `Alt` + `8` を`引用表示の解除`のショートカットキーとして割り当てました。
 
 ### 解除方法5. PowerShellを使って解除
 
