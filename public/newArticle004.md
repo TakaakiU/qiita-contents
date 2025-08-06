@@ -1,12 +1,12 @@
 ---
 title: Python学習の参考文献・購入した書籍
 tags:
-  - 'python'
-  - 'book'
-  - 'PR'
+  - Python
+  - Book
+  - pr
 private: false
-updated_at: ''
-id: null
+updated_at: '2025-08-07T08:59:18+09:00'
+id: b9a1aee479fe2af96c07
 organization_url_name: null
 slide: false
 ignorePublish: false
