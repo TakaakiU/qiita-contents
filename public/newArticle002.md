@@ -1,9 +1,9 @@
 ---
 title: VS Codeで選択範囲の文字列を引用表示に変換する5つの方法（解除方法も合わせて紹介）
 tags:
-  - Markdown
-  - PowerShell
-  - VSCode
+  - markdown
+  - vscode
+  - powershell
 private: true
 updated_at: '2025-08-06T14:36:28+09:00'
 id: b07459f10b9508adec43
