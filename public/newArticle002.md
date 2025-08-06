@@ -224,16 +224,18 @@ function Add-MarkdownQuote {
 amq
 ```
 
-[こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1%EF%BC%9Apowershell%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
+[こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#参考情報：powershellのプロファイルを使ったプロセス環境変数の設定方法)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
 
 ## 選択範囲の引用表示を解除する方法
 
 数行の場合は手動で先頭行に対して「`> `」を削除するのもありですが、対象文字列が多いと面倒です。
 調べた結果、5種類の対応が見つかりました。
+（前述した`引用表示の追加`で紹介した5つの方法と同じ手法を用いています。そのため、全体を通してみると冗長的な表現になっています。
+　ただ、読者に対して目的に応じた手順を紹介したいため、意図的にこのような記事の構成としています。ご了承ください。）
 
 ### 解除方法1. VS Codeのショートカットキーを駆使して解除
 
-https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
+追加の際と同様、[こちらの記事](https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark)をベースに手順を考えました。
 
 1. 対象の文字列を範囲指定
 1. `Shift` + `Alt` + `I` で選択した各行の末尾にマルチカーソルを挿入
@@ -266,6 +268,8 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `^`で選択範囲の文字列の各行頭にある「`> `（または`>`）」が削除
 
+※ 追加も解除も同じショートカットキーで機能します。
+
 ### 解除方法4. VS Codeでショートカットキーを自作して解除
 
 #### 設定方法（VS Codeでショートカットキーを自作して解除）
@@ -274,7 +278,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 下記の項目を選択
     > 基本設定:キーボードショートカットを開く(JSON)
     > Preferences: Keyboard Shortcuts (JSON)
-1. keybindings.jsonが開く
+1. `keybindings.json`が自動で開かれる
 1. 下記の内容を追加
     定義するショートカットキーは任意ですが、下記の内容を追加することで、
     選択範囲の文字列を引用表示に変換できます。
@@ -282,7 +286,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
     ```json:keybindings.json
     [
         {
-            // 追加ショートカットキーを含む、既存の定義
+            // 既存の定義（追加ショートカットキーを含む）
         },
         {
             "key": "ctrl+alt+8", // 引用を「削除」するキー
@@ -375,7 +379,7 @@ function Remove-MarkdownQuote {
 rmq
 ```
 
-[こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1%EF%BC%9Apowershell%E3%81%AE%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
+[こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#参考情報：powershellのプロファイルを使ったプロセス環境変数の設定方法)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
 
 ## まとめ
 
