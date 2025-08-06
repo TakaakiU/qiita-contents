@@ -2,8 +2,8 @@
 title: VS Codeで選択範囲の文字列を引用表示に変換する5つの方法（解除方法も合わせて紹介）
 tags:
   - Markdown
-  - PowerShell
   - VSCode
+  - PowerShell
 private: true
 updated_at: '2025-08-06T10:51:35+09:00'
 id: b07459f10b9508adec43
@@ -82,8 +82,8 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 ```
 
 項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)などの構文・スタイルチェックツールで警告表示（markdownlintだと[MD009 - 末尾のスペース](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md)）されてしまいます。
-これを解消するため、「`> `」を「`>`」にしたい場合は、追加で対応してください。
 
+これを解消するため、「`> `」を「`>`」には、追加で置換しましょう。
 1 ～ 4 は同じ手順で後続の手順を、
 
 5. 検索欄に「`^> $`」を入力
@@ -100,7 +100,7 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 > - 項目5
 ```
 
-テキストを範囲選択しないと判別しにくいですが、追加の置換で末尾のスペースを削除することができました。
+テキストを範囲選択しないと結果が判別しにくいですが、置換により末尾のスペースを削除することができました。
 
 ### 変換方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使って追加
 
@@ -110,6 +110,8 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `^`で選択範囲の文字列の各行頭に「`> `」が挿入
+
+VS Codeで簡単に導入したい場合は、この方法がオススメです。
 
 ### 変換方法4. VS Codeでショートカットキーを自作して追加
 
@@ -180,6 +182,8 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 
 JIS配列のキーボードでは、「`Shift` + `9` → `)`（丸括弧閉じ）」と入力できるため、 `Ctrl` + `Alt` + `9` を`引用表示の追加`のショートカットキーとして割り当てました。
 
+今回は標準的な結果になるような正規表現を定義しましたが、独自の正規表現で変換結果をカスタマイズしたい場合にオススメの方法。
+
 ### 変換方法5. PowerShellを使って追加
 
 <details><summary>クリップボードのテキストを引用表示に変換する「Add-MarkdownQuote」</summary>
@@ -227,6 +231,9 @@ amq
 ```
 
 [こちらの記事](https://zenn.dev/haretokidoki/articles/e2a6c521035d94#参考情報：powershellのプロファイルを使ったプロセス環境変数の設定方法)を参考にプロファイルに登録すると簡単にPowerShellの自作関数が呼び出せるようになりました。
+
+この方法が一番自由度が高いです。
+また、クリップボードを使用した方法のため、VS Codeに限らずメールの文章作成やドキュメント作成などでも活用したい場合にオススメしたい方法です。
 
 ## 選択範囲の引用表示を解除する方法
 
@@ -402,11 +409,11 @@ rmq
 - 方法1. VS Codeのショートカットキーを駆使した方法
 - 方法2. VS Codeの置換機能（正規表現を有効）を使った方法
 
-### 簡易的に対応できる方法が……
+### VS Codeで簡単に対応する方法が……
 
 - 方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使った方法
 
-### 拡張機能は使わずにVS Codeで何とかしたい場合が……
+### 独自の正規表現で変換結果をカスタマイズする方法が……
 
 - 方法4. VS Codeでショートカットキーを自作する方法
 
