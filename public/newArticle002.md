@@ -5,7 +5,7 @@ tags:
   - PowerShell
   - VSCode
 private: true
-updated_at: '2025-08-07T08:22:40+09:00'
+updated_at: '2025-08-07T08:28:34+09:00'
 id: b07459f10b9508adec43
 organization_url_name: null
 slide: false
