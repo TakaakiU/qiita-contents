@@ -226,7 +226,7 @@ function Add-MarkdownQuote {
 
 </details>
 
-```powershell
+```powershell:エイリアスでの実行方法
 amq
 ```
 
@@ -386,7 +386,7 @@ function Remove-MarkdownQuote {
 
 </details>
 
-```powershell
+```powershell:エイリアスでの実行方法
 rmq
 ```
 
