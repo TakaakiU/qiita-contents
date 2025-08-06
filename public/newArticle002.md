@@ -56,9 +56,11 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 >
 > 引用元：[手順 - VSCodeで複数行にMarkdownの引用符を付ける｜Zenn](https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark#%E6%89%8B%E9%A0%86)
 
+なかなかスマートなやり方です。
+
 ### 変換方法2. VS Codeの置換機能（正規表現を有効）を使って追加
 
-選択範囲の先頭行に対し、「`> `」を追加。
+正規表現を使った置換で選択範囲の先頭行に対し、「`> `」を追加する手順。
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `H` で置換機能を表示
@@ -79,7 +81,7 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で実現で�
 > - 項目5
 ```
 
-項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)で警告表示（[MD009 - 末尾のスペース](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md)）されてしまいます。
+項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)などの構文・スタイルチェックツールで警告表示（markdownlintだと[MD009 - 末尾のスペース](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md)）されてしまいます。
 これを解消するため、「`> `」を「`>`」にしたい場合は、追加で対応してください。
 
 1 ～ 4 は同じ手順で後続の手順を、
@@ -176,7 +178,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
 
-JIS配列のキーボードでは、「`Shift` + `9` = `)`（丸括弧閉じ）」であるため、 `Ctrl` + `Alt` + `9` を`引用表示の追加`のショートカットキーとして割り当てました。
+JIS配列のキーボードでは、「`Shift` + `9` → `)`（丸括弧閉じ）」と入力できるため、 `Ctrl` + `Alt` + `9` を`引用表示の追加`のショートカットキーとして割り当てました。
 
 ### 変換方法5. PowerShellを使って追加
 
@@ -243,6 +245,8 @@ amq
 1. `Delete` を2回押して先頭行の `> ` を削除
 
 ### 解除方法2. VS Codeの置換機能（正規表現を有効）を使って解除
+
+正規表現を使った置換で選択範囲の先頭行にある「`> `（または`>`）」を削除する手順。
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `H` で置換機能を表示
@@ -337,7 +341,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `Alt` + `8`で選択範囲の文字列の各行頭にある「`> `（または`>`）」が削除
 
-JIS配列のキーボードでは、「`Shift` + `8` = `(`（丸括弧開き）」であるため、 `Ctrl` + `Alt` + `8` を`引用表示の解除`のショートカットキーとして割り当てました。
+JIS配列のキーボードでは、「`Shift` + `8` → `(`（丸括弧開き）」と入力できるため、 `Ctrl` + `Alt` + `8` を`引用表示の解除`のショートカットキーとして割り当てました。
 
 ### 解除方法5. PowerShellを使って解除
 
@@ -383,7 +387,7 @@ rmq
 
 ## まとめ
 
-引用表示（または解除）にする下記5つの方法を紹介しました。
+引用表示にする（または解除）5つの方法を紹介しました。
 
 1. VS Codeのショートカットキーを駆使した方法
 1. VS Codeの置換機能（正規表現を有効）を使った方法
@@ -393,15 +397,22 @@ rmq
 
 目的別に方法を提示していくと……
 
-- 事前の作業が不要ですぐ対応できる方法が……
-    - 方法1. VS Codeのショートカットキーを駆使した方法
-    - 方法2. VS Codeの置換機能（正規表現を有効）を使った方法
-- 簡易的に対応できる方法が……
-    - 方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使った方法
-- 拡張機能は使わずにVS Codeで何とかしたい場合が……
-    - 方法4. VS Codeでショートカットキーを自作する方法
-- VS Codeに限らずメール作成やドキュメント作成時などにも幅広く使用する方法が……
-    - 方法5. PowerShellを使った方法
+### 事前の作業が不要ですぐ対応できる方法が……
+
+- 方法1. VS Codeのショートカットキーを駆使した方法
+- 方法2. VS Codeの置換機能（正規表現を有効）を使った方法
+
+### 簡易的に対応できる方法が……
+
+- 方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使った方法
+
+### 拡張機能は使わずにVS Codeで何とかしたい場合が……
+
+- 方法4. VS Codeでショートカットキーを自作する方法
+
+### VS Codeに限らずメール作成やドキュメント作成時などにも幅広く使用する方法が……
+
+- 方法5. PowerShellを使った方法
 
 という感じになると思います。
 この記事が、同様の課題をお持ちの方にとって、解決の一助となりますと幸いです。
