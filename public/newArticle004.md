@@ -4,9 +4,9 @@ tags:
   - Python
   - Book
   - pr
-private: false
-updated_at: '2025-08-07T09:03:46+09:00'
-id: b9a1aee479fe2af96c07
+private: true
+updated_at: 
+id: 
 organization_url_name: null
 slide: false
 ignorePublish: false
