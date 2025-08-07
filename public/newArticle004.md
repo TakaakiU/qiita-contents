@@ -5,8 +5,8 @@ tags:
   - Book
   - pr
 private: true
-updated_at: 
-id: 
+updated_at: '2025-08-07T09:09:26+09:00'
+id: ae364212de1da544ded9
 organization_url_name: null
 slide: false
 ignorePublish: false
