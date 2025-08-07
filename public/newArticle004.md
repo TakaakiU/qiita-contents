@@ -4,7 +4,7 @@ tags:
   - Python
   - Book
   - pr
-private: false
+private: true
 updated_at: '2025-08-07T08:59:18+09:00'
 id: b9a1aee479fe2af96c07
 organization_url_name: null
