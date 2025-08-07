@@ -4,8 +4,8 @@ tags:
   - Markdown
   - PowerShell
   - VSCode
-private: false
-updated_at: '2025-08-07T08:28:34+09:00'
+private: true
+updated_at: '2025-08-07T08:59:18+09:00'
 id: b07459f10b9508adec43
 organization_url_name: null
 slide: false
