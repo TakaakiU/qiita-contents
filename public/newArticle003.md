@@ -29,3 +29,8 @@ https://inventwithpython.com/beyond/
 https://amzn.to/4oqlfui
 
 ※このリンクはAmazonアソシエイトのリンク。
+
+## 他の「Al Sweigart氏」が著者の書籍
+
+https://amzn.to/3UfLDt5
+
