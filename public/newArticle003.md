@@ -175,3 +175,9 @@ https://amzn.to/4oqlfui
 https://amzn.to/3UfLDt5
 
 ## コーディングしたPythonアプリ
+
+## 他の方が書いた記事を紹介
+
+https://qiita.com/hirayama_yuichi/items/dc5005a15a1d8fccc577
+
+https://qiita.com/inetcpl/items/af42b8221d9447637449
