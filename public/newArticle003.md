@@ -3,7 +3,7 @@ title: Python書籍「きれいなPythonプログラミング」サンプルコ�
 tags:
   - Python
   - Book
-  - pr
+  - PR
 private: true
 updated_at: '2025-08-27T15:57:26+09:00'
 id: ae364212de1da544ded9
@@ -195,9 +195,11 @@ https://inventwithpython.com/
 
 https://amzn.to/3UfLDt5
 
-## 勉強後にコーディングしたPythonアプリ
+## 勉強後にコーディングしたPythonデスクトップアプリ（Tkinter）
 
-GitHubのリンク
+https://github.com/TakaakiU/PyTkinterToPSScript-UserDefined
+
+https://github.com/TakaakiU/PyTkinterToPSScript
 
 ## 他の方が書いた記事を紹介
 
