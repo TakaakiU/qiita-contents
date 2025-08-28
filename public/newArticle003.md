@@ -187,7 +187,7 @@ https://inventwithpython.com/beyond/
 
 ## 「きれいなPythonプログラミング」以外の書籍
 
-### 公式ページ「Invent with Python」
+### 書籍一覧（トップページに掲載）｜公式ページ「Invent with Python」
 
 https://inventwithpython.com/
 
