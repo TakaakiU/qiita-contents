@@ -90,20 +90,20 @@ https://www.amazon.co.jp/dp/B09RDWRJM9
 
 ## 購入した書籍「きれいなPythonプログラミング」の良かった点
 
-- どのような構成でコーディングするのが良いか理解できた点
+- **どのような構成でコーディングするのが良いか理解できた点**
   基本的な事や関数など個々のコードは理解したが、それら部品をどのように、つなぎ合わせるのが正解か不明だった。
-- オープンソースのPythonプログラムの構成を理解できるようになった点
+- **オープンソースのPythonプログラムの構成を理解できるようになった点**
   当初、`__pycache__` や `__init__.py` のようなデータの意味を理解できていなかった。
-- 部分的な解説だけではなくサンプルコード全体を用いた解説があり読みやすい点
+- **部分的な解説だけではなくサンプルコード全体を用いた解説があり読みやすい点**
 
 ## 書籍と同じ内容が無料でオンラインに公開中
 
-冒頭で紹介した通り、[こちらのリンク](https://inventwithpython.com/beyond/)で書籍の内容がそのままオンラインかつ**無料で公開中**！
+冒頭で紹介した通り、クリエイティブ・コモンズ・ライセンスのもと、[こちらのリンク](https://inventwithpython.com/beyond/)で書籍の内容がそのままオンラインかつ**無料で公開中**！
 閲覧するまでにアカウント作成など**事前作業は一切不要**です。リンクに飛ぶとすぐに閲覧できます。
 
 https://inventwithpython.com/beyond/
 
-書籍とWeb版の内容はそのまま同じですが、リンク先の**言語は英文のみ**となります。
+書籍とWeb版の内容はそのまま同じですが、リンク先の **言語は英文のみ** となります。
 英語が苦手な私でも翻訳ツールやテキスト型LLMを活用することで、簡単に内容を把握することができました。
 
 - 英語タイトル: 「`Beyond the Basic Stuff with Python: Best Practices for Writing Clean Code`」
@@ -185,7 +185,9 @@ https://inventwithpython.com/beyond/
 
 ---
 
-## 「きれいなPythonプログラミング」以外の書籍
+## 参考情報
+
+## 参考情報：「きれいなPythonプログラミング」以外の書籍
 
 ### 書籍一覧（トップページに掲載）｜公式ページ「Invent with Python」
 
@@ -195,14 +197,21 @@ https://inventwithpython.com/
 
 https://www.amazon.co.jp/stores/Al-Sweigart/author/B007716TEG
 
-## 勉強後にコーディングしたPythonデスクトップアプリ（Tkinter）
+## 参考情報：勉強後にコーディングしたPythonデスクトップアプリ（Tkinter）
 
 https://github.com/TakaakiU/PyTkinterToPSScript-UserDefined
 
 https://github.com/TakaakiU/PyTkinterToPSScript
 
-## 他の方が書いた記事を紹介
+## 参考情報：他の方が書いた記事を紹介
 
 https://qiita.com/hirayama_yuichi/items/dc5005a15a1d8fccc577
 
 https://qiita.com/inetcpl/items/af42b8221d9447637449
+
+## まとめ
+
+以上が、サンプルコードを元に解説してくれるPython書籍「きれいなPythonプログラミング」の紹介でした。
+著者のオープンソースの精神により書籍を購入する前に内容が把握できたのは、よかったです。
+
+すこしでも気にある場合は、まずオンラインで公開されている [こちらの電子書籍](https://inventwithpython.com/beyond/) をチェックしてみてください！
