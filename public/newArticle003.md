@@ -11,20 +11,20 @@ organization_url_name: null
 slide: false
 ignorePublish: false
 ---
-:::note
+<!-- :::note
 **通知メッセージ**
 本記事のリンクには、Amazonアソシエイト[^1]のリンクが含まれています。
 :::
 
-[^1]: Amazonアソシエイトとは、成功報酬型広告です。Amazonのアソシエイトとして、当アカウント([@takaakiu](https://qiita.com/takaakiu))は 適格販売により収入を得ています。
+[^1]: Amazonアソシエイトとは、成功報酬型広告です。Amazonのアソシエイトとして、当アカウント([@takaakiu](https://qiita.com/takaakiu))は 適格販売により収入を得ています。 -->
 
 Pythonの基本的なことはネット検索や生成AI（テキスト型LLM）を使い学びました。
 
 そこから一歩進んだ**お作法**や、より**可読性を意識**したコーディングを探しましたが、記事の著者によって変わる内容であり全体を通して、どのような方針にすればよいか決めかねていました。
 
-そんな状況でアル・スワイガート（Al Sweigart）氏の書籍「[きれいなPythonプログラミング: クリーンなコードを書くための最適な方法](https://amzn.to/4oqlfui)」を見つけ良本だったので共有します。
+そんな状況でアル・スワイガート（Al Sweigart）氏の書籍「[きれいなPythonプログラミング: クリーンなコードを書くための最適な方法](https://www.amazon.co.jp/dp/B09RDWRJM9)」を見つけ良本だったので共有します。
 
-https://amzn.to/4oqlfui
+https://www.amazon.co.jp/dp/B09RDWRJM9
 
 詳細は後述しますが、この書籍の内容は **すべて無料で公開** されています。この活動方針は素晴らしく、彼の活動を支援するため、この点に関しても合わせて紹介します。
 
@@ -193,7 +193,7 @@ https://inventwithpython.com/
 
 ### 著者「アル・スウェイガート氏」の一覧｜Amazon
 
-https://amzn.to/3UfLDt5
+https://www.amazon.co.jp/stores/Al-Sweigart/author/B007716TEG
 
 ## 勉強後にコーディングしたPythonデスクトップアプリ（Tkinter）
 
