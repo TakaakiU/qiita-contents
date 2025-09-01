@@ -113,7 +113,7 @@ https://inventwithpython.com/beyond/
 
 <details><summary>補足情報：なぜ著者は無料公開しているのか</summary>
 
-ご本人に聞いたわけではありませんが、Redditの[こちらの記事](https://www.reddit.com/r/Python/comments/16m0yqk/ama_i_am_al_sweigart_author_of_automate_the)で著者が質問を受け付けていて、「なぜ無料公開しているのか？」という質問に対し、下記のように答えています。
+ご本人に直接、聞いたわけではありませんが、Redditの[こちらの記事](https://www.reddit.com/r/Python/comments/16m0yqk/ama_i_am_al_sweigart_author_of_automate_the)で著者が質問を受け付けていて、「なぜ無料公開しているのか？」という質問に対し、下記のように答えています。
 
 - 質問者 (コメント投稿者): ImSorryThatYouHaveTo
   > あなたが本を無料（ビールのように無料、そして自由！）にして、商業的・独占的なルートを選ばなかったのはなぜですか？
