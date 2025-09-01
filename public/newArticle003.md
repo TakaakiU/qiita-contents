@@ -18,7 +18,7 @@ Pythonの基本的なことはネット検索や生成AI（テキスト型LLM）
 
 https://www.amazon.co.jp/dp/B09RDWRJM9
 
-詳細は後述しますが、この書籍の内容は **すべて無料で公開** されています。この活動方針は素晴らしく、彼の活動を支援するため、この点に関しても合わせて紹介します。
+詳細は後述しますが、この書籍の内容は **すべて無料で公開** されています。このようなオープンソースの精神に則った活動は素晴らしく、彼を支援する意味でも、この点に関しても合わせて紹介します。
 
 <details><summary>補足情報：アル・スワイガート（Al Sweigart）氏について</summary>
 
@@ -49,7 +49,7 @@ https://www.amazon.co.jp/dp/B09RDWRJM9
 - [PyAutoGUI | GitHub](https://github.com/asweigart/pyautogui)
 - [Pyperclip | GitHub](https://github.com/asweigart/pyperclip)
 
-前述した自己紹介のとおり、現在はプログラムを教える活動をメインとされているようです。
+前述した自己紹介のとおり、現在はプログラムを教える活動をメインとしているようです。
 彼の[ポートフォリオのサイト](https://alsweigart.com/)をみると、以下のように記載されています。
 
 > 個人情報
@@ -74,7 +74,7 @@ https://www.amazon.co.jp/dp/B09RDWRJM9
 文末に「**自動化されたデータ収集システムを汚染することを意図した嘘**」と記載されていますが、
 こちらの個人情報を信じるとすると、誕生日は1985年8月16日とのこと。
 
-2025年8月現在だと、**年齢は40歳**の方ですね。嘘かもしれませんが（笑）
+2025年9月現在だと、**年齢は40歳**の方ですね。嘘かもしれませんが（笑）
 
 </details>
 
@@ -91,7 +91,7 @@ https://www.amazon.co.jp/dp/B09RDWRJM9
 ## 書籍と同じ内容が無料でオンラインに公開中
 
 冒頭で紹介した通り、クリエイティブ・コモンズ・ライセンスのもと、[こちらのリンク](https://inventwithpython.com/beyond/)で書籍の内容がそのままオンラインかつ**無料で公開中**！
-閲覧するまでにアカウント作成など**事前作業は一切不要**です。リンクに飛ぶとすぐに閲覧できます。
+アカウント作成など**事前作業は一切不要**です。リンクに飛ぶとすぐに閲覧可能です。
 
 https://inventwithpython.com/beyond/
 
@@ -128,7 +128,7 @@ https://inventwithpython.com/beyond/
   >
   > 引用元：[[AMA] 私は Al Sweigart です。「Automate the Boring Stuff with Python」などの本の著者です。何でも聞いてください！ : r/Python | reddit](https://www.reddit.com/r/Python/comments/16m0yqk/ama_i_am_al_sweigart_author_of_automate_the/?tl=ja#:~:text=元々は,満足してるよ。)
 
-<details><summary>質問者と解凍者の原文（英語）</summary>
+<details><summary>質問者と回答者の原文（英語）</summary>
 
 - Questioner(Commenter): ImSorryThatYouHaveTo
   > What's the reason you choose to make your books free (both as in beer and freedom!) instead of the commercial/proprietary route? Even your courses you often give away free codes for on Twitter.
@@ -143,7 +143,7 @@ https://inventwithpython.com/beyond/
   > 1. People will pirate ebooks anyway.
   > 1. Having it freely available provides great word of mouth. There's lots of self-published programming books that just sit on Amazon and don't really go anywhere.
   >
-  > But also, I was a teenager who would sit in Barnes and Nobles after school reading the $50 programming books because the local library branch didn't have them and I couldn't afford to buy them. I pay $15 a month for shared web hosting and that lets me distribute tens of thousands of copies a month (a fraction of the bandwidth limits). It's so damn easy to share information, it should be shared.
+  > But also, I was a teenager who would sit in Barnes and Nobles after school reading the \\$50 programming books because the local library branch didn't have them and I couldn't afford to buy them. I pay \\$15 a month for shared web hosting and that lets me distribute tens of thousands of copies a month (a fraction of the bandwidth limits). It's so damn easy to share information, it should be shared.
   >
   > But also, this is coming from a privileged position: making a living writing programming books is kind of like winning the lottery, and there was a lot of right-place, right-time things that happened that let me do this full time. "Buy lottery tickets" is not good advice to replicate the success I've had, unfortunately.
   >
@@ -155,8 +155,8 @@ https://inventwithpython.com/beyond/
 
 ---
 
-これらアル・スウェイガート氏の発言から、彼がどのような気持ちや考えを込めているのか、わかりました。
-背景にある動機を箇条書きすると以下のとおり。
+これら彼（アル・スウェイガート氏）の発言から、どのような考えで書籍を無料で公開しているか、わかりました。
+その背景を箇条書きすると以下のとおり。
 
 - **自身の過去の経験への共感と恩返し**
   10代の頃、高価なプログラミング本を買うお金がなく、書店で座り込んで読んでいた経験があるため、金銭的な理由で学習機会を失う人をなくしたいという強い想い。
@@ -172,6 +172,10 @@ https://inventwithpython.com/beyond/
 
 - **利益よりも「価値」を優先する姿勢**
   利益を最大化することよりも、自分が「最も重要だ」と心から信じるプロジェクトに取り組める現状に満足感とやりがいを感じている。
+
+冒頭でも感想を述べていますが、素晴らしい活動方針だと思います。
+
+以上が、「なぜ著者は無料公開しているのか」でした。
 
 </details>
 
@@ -189,13 +193,13 @@ https://inventwithpython.com/
 
 https://www.amazon.co.jp/stores/Al-Sweigart/author/B007716TEG
 
-## 参考情報：勉強後にコーディングしたPythonデスクトップアプリ（Tkinter）
+## 参考情報：書籍を参考にコーディングしたPythonデスクトップアプリ（Tkinter）
 
 https://github.com/TakaakiU/PyTkinterToPSScript-UserDefined
 
 https://github.com/TakaakiU/PyTkinterToPSScript
 
-## 参考情報：他の方が書いた記事を紹介
+## 参考情報：他の方が書いた記事を紹介した記事
 
 https://qiita.com/hirayama_yuichi/items/dc5005a15a1d8fccc577
 
@@ -203,7 +207,7 @@ https://qiita.com/inetcpl/items/af42b8221d9447637449
 
 ## まとめ
 
-以上が、サンプルコードを元に解説してくれるPython書籍「きれいなPythonプログラミング」の紹介でした。
-著者のオープンソースの精神により書籍を購入する前に内容が把握できたのは、よかったです。
+以上が、サンプルコードを元に解説してくれるPython書籍「[きれいなPythonプログラミング: クリーンなコードを書くための最適な方法](https://www.amazon.co.jp/dp/B09RDWRJM9)」の紹介でした。
+著者のオープンソースの精神により書籍を購入する前に内容が把握できて助かりました。
 
-すこしでも気にある場合は、まずオンラインで公開されている [こちらの電子書籍](https://inventwithpython.com/beyond/) をチェックしてみてください！
+繰り返しになりますが少しでも興味がある場合は、まずオンラインで公開されている [こちらの電子書籍](https://inventwithpython.com/beyond/) をチェックしてみてください！
