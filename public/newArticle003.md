@@ -4,7 +4,7 @@ tags:
   - Python
   - Book
 private: true
-updated_at: '2025-09-01T10:26:51+09:00'
+updated_at: '2025-09-01T11:40:24+09:00'
 id: ae364212de1da544ded9
 organization_url_name: null
 slide: false
