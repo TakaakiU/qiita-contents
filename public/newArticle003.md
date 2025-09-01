@@ -3,7 +3,6 @@ title: Python書籍「きれいなPythonプログラミング」サンプルコ�
 tags:
   - Python
   - Book
-  - pr
 private: true
 updated_at: '2025-08-29T10:17:15+09:00'
 id: ae364212de1da544ded9
@@ -11,13 +10,6 @@ organization_url_name: null
 slide: false
 ignorePublish: false
 ---
-<!-- :::note
-**通知メッセージ**
-本記事のリンクには、Amazonアソシエイト[^1]のリンクが含まれています。
-:::
-
-[^1]: Amazonアソシエイトとは、成功報酬型広告です。Amazonのアソシエイトとして、当アカウント([@takaakiu](https://qiita.com/takaakiu))は 適格販売により収入を得ています。 -->
-
 Pythonの基本的なことはネット検索や生成AI（テキスト型LLM）を使い学びました。
 
 そこから一歩進んだ**お作法**や、より**可読性を意識**したコーディングを探しましたが、記事の著者によって変わる内容であり全体を通して、どのような方針にすればよいか決めかねていました。
