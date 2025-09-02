@@ -185,23 +185,23 @@ https://inventwithpython.com/beyond/
 
 ## 参考情報
 
-## 参考情報：「きれいなPythonプログラミング」以外の書籍
+### 参考情報：アル・スウェイガート氏のその他の書籍を紹介
 
-### 書籍一覧（トップページに掲載）｜公式ページ「Invent with Python」
+#### 書籍一覧（トップページに掲載）｜公式ページ「Invent with Python」
 
 https://inventwithpython.com/
 
-### 著者「アル・スウェイガート氏」の一覧｜Amazon
+#### 著者「アル・スウェイガート氏」の一覧｜Amazon
 
 https://www.amazon.co.jp/stores/Al-Sweigart/author/B007716TEG
 
-## 参考情報：書籍を参考にコーディングしたPythonデスクトップアプリ（Tkinter）
+### 参考情報：書籍を参考にコーディングしたPythonデスクトップアプリ（Tkinter）
 
 https://github.com/TakaakiU/PyTkinterToPSScript-UserDefined
 
 https://github.com/TakaakiU/PyTkinterToPSScript
 
-## 参考情報：他の方が書いた記事を紹介した記事
+### 参考情報：他の方が「きれいなPythonプログラミング」について書いた記事
 
 https://qiita.com/hirayama_yuichi/items/dc5005a15a1d8fccc577
 
