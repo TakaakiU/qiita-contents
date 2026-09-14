@@ -10,6 +10,8 @@ id: b07459f10b9508adec43
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 VS Codeの標準的な機能や代表的なMarkdownの拡張機能で引用表示[^1]の変換が実現できないか試行錯誤しましたが、良い方法が見つかりませんでした。

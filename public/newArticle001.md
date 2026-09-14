@@ -11,6 +11,8 @@ id: 1f84f4c58b04ee241720
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 [こちらの公式README](https://github.com/increments/qiita-cli)を参照し、Qiita CLIを導入しました。
