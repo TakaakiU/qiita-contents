@@ -4,11 +4,13 @@ tags:
   - Python
   - Book
 private: true
-updated_at: '2025-09-02T10:05:47+09:00'
+updated_at: '2026-09-15T09:29:14+09:00'
 id: ae364212de1da544ded9
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 Pythonの基本的なことはネット検索や生成AI（テキスト型LLM）を使い学びました。
 
