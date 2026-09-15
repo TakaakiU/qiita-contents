@@ -1,10 +1,14 @@
 ---
 title: Claude Code の個人用スラッシュコマンドを13本作って、123回の実測から見えたこと
 tags:
-  - ''
+  - ClaudeCode
+  - Claude
+  - 生成AI
+  - CLI
+  - Markdown
 private: true
-updated_at: ''
-id: null
+updated_at: '2026-09-15T09:19:27+09:00'
+id: 7a5a62548807318a0115
 organization_url_name: null
 slide: false
 ignorePublish: false
