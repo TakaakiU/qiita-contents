@@ -18,7 +18,7 @@ Pythonの基本的なことはネット検索や生成AI（テキスト型LLM）
 
 そんな状況でアル・スワイガート（Al Sweigart）氏の書籍「[きれいなPythonプログラミング: クリーンなコードを書くための最適な方法](https://www.amazon.co.jp/dp/B09RDWRJM9)」を見つけ良本だったので共有します。
 
-https://www.amazon.co.jp/dp/B09RDWRJM9
+[書籍「きれいなPythonプログラミング」](https://www.amazon.co.jp/dp/B09RDWRJM9)
 
 詳細は後述しますが、この書籍の内容は **すべて無料で公開** されています。このようなオープンソースの精神に則った活動は素晴らしく、彼を支援する意味でも、この点に関しても合わせて紹介します。
 
@@ -97,7 +97,7 @@ https://www.amazon.co.jp/dp/B09RDWRJM9
 冒頭で紹介した通り、クリエイティブ・コモンズ・ライセンスのもと、[こちらのリンク](https://inventwithpython.com/beyond/)で書籍の内容がそのままオンラインかつ**無料で公開中**！
 アカウント作成など**事前作業は一切不要**です。リンクに飛ぶとすぐに閲覧可能です。
 
-https://inventwithpython.com/beyond/
+[Beyond the Basic Stuff with Python](https://inventwithpython.com/beyond/)
 
 書籍とWeb版の内容はそのまま同じですが、リンク先の **言語は英文のみ** となります。
 英語が苦手な私でも翻訳ツールやテキスト型LLMを活用することで、簡単に内容を把握することができました。
@@ -191,23 +191,23 @@ https://inventwithpython.com/beyond/
 
 #### 書籍一覧（トップページに掲載）｜公式ページ「Invent with Python」
 
-https://inventwithpython.com/
+[Invent with Python](https://inventwithpython.com/)
 
 #### 著者「アル・スウェイガート氏」の一覧｜Amazon
 
-https://www.amazon.co.jp/stores/Al-Sweigart/author/B007716TEG
+[Al SweigartのAmazon著者ページ](https://www.amazon.co.jp/stores/Al-Sweigart/author/B007716TEG)
 
 ### 参考情報：書籍を参考にコーディングしたPythonデスクトップアプリ（Tkinter）
 
-https://github.com/TakaakiU/PyTkinterToPSScript-UserDefined
+[PyTkinterToPSScript-UserDefined](https://github.com/TakaakiU/PyTkinterToPSScript-UserDefined)
 
-https://github.com/TakaakiU/PyTkinterToPSScript
+[PyTkinterToPSScript](https://github.com/TakaakiU/PyTkinterToPSScript)
 
 ### 参考情報：他の方が「きれいなPythonプログラミング」について書いた記事
 
-https://qiita.com/hirayama_yuichi/items/dc5005a15a1d8fccc577
+[「きれいなPythonプログラミング」の紹介記事](https://qiita.com/hirayama_yuichi/items/dc5005a15a1d8fccc577)
 
-https://qiita.com/inetcpl/items/af42b8221d9447637449
+[「きれいなPythonプログラミング」の紹介記事](https://qiita.com/inetcpl/items/af42b8221d9447637449)
 
 ## まとめ
 

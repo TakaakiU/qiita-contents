@@ -45,7 +45,7 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で引用表�
 
 ## 選択範囲を引用表示にする方法
 
-数行の場合は手動で先頭行に対して「`> `」を追加するのもありですが、対象文字列が多いと面倒です。
+数行の場合は手動で先頭行に対して「`>` と半角スペース」を追加するのもありですが、対象文字列が多いと面倒です。
 調べた結果、5種類の対応が見つかりました。
 
 ### 変換方法1. VS Codeのショートカットキーを駆使して追加
@@ -64,17 +64,17 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で引用表�
 
 ### 変換方法2. VS Codeの置換機能（正規表現を有効）を使って追加
 
-正規表現を使った置換で選択範囲の先頭行に対し、「`> `」を追加する手順。
+正規表現を使った置換で選択範囲の先頭行に対し、「`>` と半角スペース」を追加する手順。
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `H` で置換機能を表示
 1. `Alt` + `L` で「選択範囲を検索」をオンにする
 1. `Alt` + `R` で「正規表現を使用する」をオンにする
 1. 検索欄に「`^`」を入力
-1. 置換欄に「`> `」を入力
+1. 置換欄に「`>` と半角スペース」を入力
 1. `Ctrl` + `Alt` + `Enter` で「すべて置換」
 
-対象の文字列内に空行がある場合は、下記のとおり「`> `」のみの行が生まれます。
+対象の文字列内に空行がある場合は、下記のとおり「`>` と半角スペース」のみの行が生まれます。
 
 ```markdown:引用表示にしたいテキスト群
 > - 項目1
@@ -85,13 +85,13 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で引用表�
 > - 項目5
 ```
 
-項目2と項目3の間にある「`> `」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)などの構文・スタイルチェックツールで警告表示（markdownlintだと[MD009 - 末尾のスペース](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md)）されてしまいます。
+項目2と項目3の間にある「`>` と半角スペース」だけの行は、[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)などの構文・スタイルチェックツールで警告表示（markdownlintだと[MD009 - 末尾のスペース](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md)）されてしまいます。
 
-これを解消するため、「`> `」を「`>`」には、追加で置換しましょう。
+これを解消するため、「`>` と半角スペース」を「`>`」に置き換える手順を追加しましょう。
 1 ～ 4 は同じ手順で後続の手順を、
 
-5. 検索欄に「`^> $`」を入力
-6. 置換欄に「`>`」を入力
+5\. 検索欄に「`^>\x20$`」を入力
+6\. 置換欄に「`>`」を入力
 
 というように置き換えることで対応可能です。
 
@@ -108,12 +108,12 @@ VS Codeの標準的な機能や代表的なMarkdownの拡張機能で引用表�
 
 ### 変換方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使って追加
 
-https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
+[Markdown Blockquote Toggler](https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler)
 
 上記の拡張機能をインストール後、下記の手順で対応可能。
 
 1. 対象の文字列を範囲指定
-1. `Ctrl` + `^`で選択範囲の文字列の各行頭に「`> `」が挿入
+1. `Ctrl` + `^`で選択範囲の文字列の各行頭に「`>` と半角スペース」が挿入
 
 VS Codeで簡単に導入したい場合は、この方法がオススメです。
 
@@ -189,7 +189,7 @@ VS Codeで簡単に導入したい場合は、この方法がオススメです�
 #### 使用方法（VS Codeでショートカットキーを自作して追加）
 
 1. 対象の文字列を範囲指定
-1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`> `」が挿入
+1. `Ctrl` + `Alt` + `9`で選択範囲の文字列の各行頭に「`>` と半角スペース」が挿入
 
 JIS配列のキーボードでは、「`Shift` + `9` → `)`（丸括弧閉じ）」と入力できるため、 `Ctrl` + `Alt` + `9` を`引用表示の追加`のショートカットキーとして割り当てました。
 
@@ -248,7 +248,7 @@ amq
 
 ## 選択範囲の引用表示を解除する方法
 
-数行の場合は手動で先頭行に対して「`> `」を削除するのもありですが、対象文字列が多いと面倒です。
+数行の場合は手動で先頭行に対して「`>` と半角スペース」を削除するのもありですが、対象文字列が多いと面倒です。
 調べた結果、5種類の対応が見つかりました。
 
 :::note warn
@@ -266,35 +266,35 @@ amq
 1. 対象の文字列を範囲指定
 1. `Shift` + `Alt` + `I` で選択した各行の末尾にマルチカーソルを挿入
 1. `Home` でマルチカーソルの位置を先頭行に移動
-1. `Delete` を2回押して先頭行の `> ` を削除
+1. `Delete` を2回押して先頭行の `>` と半角スペースを削除
 
 ### 解除方法2. VS Codeの置換機能（正規表現を有効）を使って解除
 
-正規表現を使った置換で選択範囲の先頭行にある「`> `（または`>`）」を削除する手順。
+正規表現を使った置換で選択範囲の先頭行にある「`>` と半角スペース（または`>`）」を削除する手順。
 
 1. 対象の文字列を範囲指定
 1. `Ctrl` + `H` で置換機能を表示
 1. `Alt` + `L` で「選択範囲を検索」をオンにする
 1. `Alt` + `R` で「正規表現を使用する」をオンにする
-1. 検索欄に「`^> `」を入力
+1. 検索欄に「`^>\x20`」を入力
 1. 置換欄を「``（空文字）」とする
 1. `Ctrl` + `Alt` + `Enter` で「すべて置換」
 
 対象の文字列で「`>`」のみの行が存在する場合は、前述した手順で
 
-5. 検索欄に「`^>$`」を入力
-6. 置換欄に「``（空文字）」とする
+5\. 検索欄に「`^>$`」を入力
+6\. 置換欄に「``（空文字）」とする
 
 とすることで対応可能。
 
 ### 解除方法3. 専用の拡張機能「Markdown Blockquote Toggler」を使って解除
 
-https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler
+[Markdown Blockquote Toggler](https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-toggler)
 
 上記の拡張機能をインストール後、下記の手順で対応可能。
 
 1. 対象の文字列を範囲指定
-1. `Ctrl` + `^`で選択範囲の文字列の各行頭にある「`> `」が削除
+1. `Ctrl` + `^`で選択範囲の文字列の各行頭にある「`>` と半角スペース」が削除
     （`>`のみの行は削除できません。）
 
 ※ 追加も解除も同じショートカットキーで機能します。
@@ -364,7 +364,7 @@ https://marketplace.visualstudio.com/items?itemName=EliYing.markdown-blockquote-
 #### 使用方法（VS Codeでショートカットキーを自作して解除）
 
 1. 対象の文字列を範囲指定
-1. `Ctrl` + `Alt` + `8`で選択範囲の文字列の各行頭にある「`> `（または`>`）」が削除
+1. `Ctrl` + `Alt` + `8`で選択範囲の文字列の各行頭にある「`>` と半角スペース（または`>`）」が削除
 
 JIS配列のキーボードでは、「`Shift` + `8` → `(`（丸括弧開き）」と入力できるため、 `Ctrl` + `Alt` + `8` を`引用表示の解除`のショートカットキーとして割り当てました。
 
@@ -444,6 +444,6 @@ rmq
 
 ## 参考文献
 
-https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark
+[VSCodeで複数行にMarkdownの引用符を付ける](https://zenn.dev/d_ske104/articles/vscode-markdown-put-quote-mark)
 
-https://zenn.dev/haretokidoki/articles/e2a6c521035d94
+[PowerShellのプロファイルを使ったプロセス環境変数の設定方法](https://zenn.dev/haretokidoki/articles/e2a6c521035d94)
