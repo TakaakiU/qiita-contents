@@ -1,2 +1,8 @@
 {
+    "chat.tools.terminal.autoApprove": {
+        "/^git status --short --branch && git stash list -3 && git diff --stat$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }
