@@ -43,7 +43,7 @@ Qiitaコンテンツのリポジトリに対し、Qiitaのアクセストーク�
 > 以下の流れで設定を行うことで、GitHub の特定のブランチにコミットしたタイミングで記事の投稿や更新を行うことが可能になります。
 >
 > 1. GitHub にリポジトリを作成します。
-> 1. https://github.com/[ユーザー名]/[リポジトリ名]/settings/secrets/actions から、シークレットに`QIITA_TOKEN`という名前で発行した Qiita のトークンを保存します。
+> 1. GitHub のシークレット設定ページで、シークレットに`QIITA_TOKEN`という名前で発行した Qiita のトークンを保存します。
 > 1. qiita init を実行したディレクトリ全体を作成したリポジトリにプッシュします。
 >
 > デフォルトは`main`または`master`ブランチにコミットがあった場合、自動で Qiita へ記事の投稿・更新がされます。  
@@ -198,6 +198,6 @@ jobs:
 
 ## 参考文献
 
-https://github.com/increments/qiita-cli
+[Qiita CLI 公式リポジトリ](https://github.com/increments/qiita-cli)
 
-https://qiita.com/Qiita/items/32c79014509987541130
+[Qiita の設定手順](https://qiita.com/Qiita/items/32c79014509987541130)
