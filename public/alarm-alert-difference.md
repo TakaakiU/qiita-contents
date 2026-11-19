@@ -3,7 +3,7 @@ title: 「アラート」と「アラーム」は何が違う？一般的な意�
 tags:
   - AWS
   - Azure
-  - prometheus
+  - Prometheus
   - 監視
   - 運用
 private: false
