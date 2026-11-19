@@ -3,7 +3,7 @@ title: Python書籍「きれいなPythonプログラミング」サンプルコ�
 tags:
   - Python
   - Book
-private: true
+private: false
 updated_at: '2026-11-19T13:54:40+09:00'
 id: ae364212de1da544ded9
 organization_url_name: null
