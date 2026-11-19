@@ -3,7 +3,7 @@ title: 「アラート」と「アラーム」は何が違う？一般的な意�
 tags:
   - AWS
   - Azure
-  - prometheus
+  - Prometheus
   - 監視
   - 運用
 private: true
@@ -38,7 +38,7 @@ agreed_posting_campaign_term: false
 | 用語 | 語源 | もともとの意味 |
 |---|---|---|
 | アラーム（Alarm） | イタリア語 *all'arme* | 「武器を取れ！」[^etym-alarm] |
-| アラート（Alert） | イタリア語 *all'erta* | 「見張り台へ！」（*erta* は見張り台・高い塔の意味）[^etym-alert] |
+| アラート（Alert） | イタリア語 *all'erta* | 「高い場所で警戒せよ」[^etym-alert] |
 
 どちらも、もとは**兵士への呼びかけ**です。
 
@@ -76,14 +76,14 @@ agreed_posting_campaign_term: false
 | ツール・分野 | 使われる用語 | 状態・重要度の例 | 出典 |
 |---|---|---|---|
 | AWS CloudWatch | **Alarm** | 状態：`OK` / `ALARM` / `INSUFFICIENT_DATA` | [^aws] |
-| Azure Monitor | **Alert**（アラートルール） | 状態：`Fired` / `Resolved`、重要度：`Sev0`〜`Sev4` | [^azure] [^azure-schema] |
+| Azure Monitor | **Alert**（アラートルール） | 条件状態：`Fired` / `Resolved`、ユーザー応答：`New` / `Acknowledged` / `Closed`、重要度：`Sev0`〜`Sev4` | [^azure] [^azure-schema] |
 | Google Cloud Monitoring | **Alert**（アラートポリシー） | 条件と通知先をポリシーで定義 | [^gcp] |
 | Prometheus | **Alert**（アラートルール） | 状態：`inactive` / `pending` / `firing` | [^prom] |
 | 通信機器の監視（ITU-T X.733） | **Alarm** | 重要度：`Critical` / `Major` / `Minor` / `Warning` など | [^x733] [^rfc3877] |
 
-### 同じ監視でも呼び方が違う例
+### CPU高負荷を検知する設定例
 
-「CPU使用率が5分間平均で80%を超えたら通知する」という**まったく同じ監視**を、2つのツールで書いてみます。
+「CPU使用率が80%を超える状態を検知する」設定例を、2つのツールで見てみます。どちらも同じ目的ですが、評価方法や通知経路は異なります。
 
 **AWS CloudWatch の場合（呼び方は「アラーム」）**
 
@@ -116,7 +116,9 @@ groups:
           summary: "CPU使用率が80%を超えています"
 ```
 
-コマンド名やキー名が `alarm` と `alert` で違うだけで、**やっていることは同じ**です。
+CloudWatch は300秒の評価期間を1回評価します。一方、Prometheus は過去5分間のCPU使用率を式で計算し、その条件が5分間継続した場合に `firing` になります。そのため、この2つの設定は**同じ目的の例ではありますが、同じ判定条件ではありません**。また、Prometheus のルールは通知先への配信設定を含まず、通知の配信には通常 Alertmanager を使います[^prom]。
+
+それぞれの用語に注目すると、CloudWatch は `Alarm`、Prometheus は `Alert` と呼んでいます。
 
 :::note info
 **ひとつの製品の中でも両方の言葉が使われています**
@@ -155,8 +157,8 @@ ITU-T X.733 では、**「Alarm」に `Warning`（警告）レベルもありま
 
 | 観点 | 一般的な意味 | IT分野 |
 |---|---|---|
-| 違いはある？ | ある（ニュアンスの違い） | **ほぼない**（ツールの呼び方の違い） |
-| 重さで使い分ける？ | アラームの方が切迫感が強い | **使い分けない**（重要度で表す） |
+| 違いはある？ | ある（ニュアンスの違い） | **用語や状態の定義は製品ごとに異なる** |
+| 重さで使い分ける？ | アラームの方が切迫感が強い | **共通の使い分けルールはない**（重要度は製品ごとに確認） |
 | 判断の基準 | 音か通知か、即時行動か警戒か | 使っているツールの用語に合わせる |
 
 ## 4. 現場で困らないためのポイント
@@ -171,7 +173,7 @@ ITU-T X.733 では、**「Alarm」に `Warning`（警告）レベルもありま
 ## おわりに
 
 - 一般的には「アラーム＝今すぐ動け」「アラート＝警戒せよ」というニュアンスの違いがあります
-- IT分野では**ツールごとの呼び方の違い**にすぎず、重さは**重要度（Severity）**で表します
+- IT分野では**ツールごとに呼び方や状態の定義が異なり**、用語だけでは重さを判断できません。重さは**重要度（Severity）**で表します
 
 言葉の違いに迷ったら、「**どのツールの話か**」と「**重要度は何か**」の2点を確認すれば大丈夫です。
 
@@ -184,10 +186,10 @@ ITU-T X.733 では、**「Alarm」に `Warning`（警告）レベルもありま
 | 本文の主張 | 根拠となる出典 |
 |---|---|
 | alarm の語源は伊 *all'arme*（武器を取れ） | Online Etymology Dictionary「alarm」[^etym-alarm] |
-| alert の語源は伊 *all'erta*（見張り台へ） | Online Etymology Dictionary「alert」[^etym-alert] |
+| alert の語源は伊 *all'erta*（高い場所で警戒する意） | Online Etymology Dictionary「alert」[^etym-alert] |
 | AWS では閾値監視を「Alarm」と呼び、状態は OK / ALARM / INSUFFICIENT_DATA | AWS CloudWatch ユーザーガイド[^aws] |
 | AWS のドキュメント内でも alarm と alert が併用されている | AWS CloudWatch ユーザーガイド（複合アラームの説明）[^aws] |
-| Azure では「Alert」「アラートルール」と呼び、状態は Fired / Resolved | Azure Monitor アラートの概要[^azure] |
+| Azure では「Alert」「アラートルール」と呼び、条件状態は Fired / Resolved、ユーザー応答は New / Acknowledged / Closed | Azure Monitor アラートの概要[^azure] |
 | Azure の重要度は Sev0〜Sev4 | Azure Monitor 共通アラートスキーマ[^azure-schema] |
 | Google Cloud では「アラートポリシー」で通知条件を定義 | Cloud Monitoring アラートの概要[^gcp] |
 | Prometheus のアラート状態は inactive / pending / firing | Prometheus ドキュメント「Alerting rules」[^prom] |
